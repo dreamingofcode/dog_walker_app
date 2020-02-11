@@ -1,5 +1,14 @@
 <h1>Create an appointment</h1>
-<% form_for @ppointment do |t| %>
+<%= form_for @appointment do |t| %>
+<br>
 <%= t.label :date %>
-<%= t.text_field :date_time %>
+<%= t.text_field :date %>
+<br>
+<%= t.label :walker %>
+<%= t.collection_select :walker, Walker.all, :id, :name %>
+<br>
+<%
+<%= t.submit %>
 <% end %>
+
+
