@@ -13,9 +13,9 @@ class AppointmentsController < ApplicationController
 
     def create 
         @appointment = Appointment.new
-        @appointment.client = @client
-        @appointment.dog_walker = @dogwalker
-        @appointment.date_time = @date_time
+        @appointment.user = session[:name]
+        @appointment.walker = params
+        @appointment.date = @date
         @appointment.save
         redirect_to appointment_path(@appointment)
     end
