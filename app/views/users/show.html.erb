@@ -6,13 +6,18 @@
 <% @dogs.each do |t| %>
 <label > Dog Name: </label><%= t.name %> <br>
 <label> Dog Breed: </label><%= t.breed %> <br>
-<hr>
+<br>
 <% end %>
+<label><h3>Your Appointments</h3></label>
 
+<% @appointments.each do |t| %>
+    Appointment for: <%= link_to t.date, edit_appointment_path(t) %> <hr>
+<% end %>
 
 
 <h2><%= link_to "Upload Dog Information", new_dog_path %></h2>
 <h2> <%= link_to "Book Appointment", new_appointment_path %></h2>
+
 <h2><%=link_to "See Your Appointments", appointments_path(@user_appointments)%></h2><br/>
 
 
@@ -21,6 +26,7 @@
   
 
   
+
 
 
 

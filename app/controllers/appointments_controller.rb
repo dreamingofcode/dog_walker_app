@@ -1,11 +1,10 @@
 class AppointmentsController < ApplicationController
     def index
-        @appointments = Appointment.all
+        @appointments = Appointment.all.select {|x| x.user_id == session[:id]}
     end
 
     def show
         @appointment = Appointment.find(params['id'])
-        @user = Appointment.find_by(walker_id: params[:id]).user
         @dog = Dog.find_by(user_id: @user).name
         @walker = @appointment.walker
         
@@ -29,14 +28,28 @@ class AppointmentsController < ApplicationController
         redirect_to appointments_path
     end
 
-    def edit
-      @appointment = Appointment.find(params[:id])
-
+    def edit 
+        # byebug
+      @appointment = Appointment.find(params['id'])
+     
     end
 
     def update
-        redirect_to appointment_path(@appointment)
+        @appointment = Appointment.find_by(id: params['id'])
+        @appointment.date = params['appointment']['date']
+        @appointment.walker_id = params['appointment']['walker_id']
+        @appointment.save
+        redirect_to appointments_path
     end
+
+
+    @article = Article.find(params[:id])
+    @article.update(title: params[:article][:title], description: params[:article][:description])
+    redirect_to article_path(@article)
+
+
+
+
 
     def destroy 
     end
