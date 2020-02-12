@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
         redirect_to controller:'sessions', action: 'new' unless session[:name] #match with user params
     end
 
+    def authenticate
+    end
+
     def require_logged_in
         redirect_to controller: 'sessions', action: 'new' unless session[:name]
     end
