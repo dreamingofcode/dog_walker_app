@@ -1,0 +1,5 @@
+<h1>Welcome, <%= session[:name] %>.</h1>
+<!-- should also display user's info:dog,number-->
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>

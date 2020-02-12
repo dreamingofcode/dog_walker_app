@@ -4,4 +4,13 @@ Rails.application.routes.draw do
   resources :walkers, only: [:show]
   resources :users, only: [:new, :create, :show, :edit, :update]
   resources :reviews, only: [:create, :new, :show]
+
+  root 'application#hello'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  post '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
+
 end
