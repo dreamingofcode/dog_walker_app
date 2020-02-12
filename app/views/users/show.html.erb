@@ -1,2 +1,19 @@
 <h1>Hello <%= @user.name %></h1>
 <h2>You are Signed in as <%= @user.username %></h2>
+
+
+<h3>Your Dogs</h3>
+<% @dogs.each do |t| %>
+<label > Dog Name: </label><%= t.name %> <br>
+<label> Dog Breed: </label><%= t.breed %> <br>
+<hr>
+<% end %>
+
+
+
+<h2><%= link_to "Upload Dog Information", new_dog_path %></h2>
+<h2> <%= link_to "Book Appointment", new_appointment_path %></h2>
+<h2><%=link_to "See Your Appointments", appointments_path(@user_appointments)%></h2>
+
+
+
