@@ -13,17 +13,20 @@ class AppointmentsController < ApplicationController
 
     def create 
         @appointment = Appointment.new
-        @appointment.user = session[:name]
-        @appointment.walker = params
-        @appointment.date = @date
+        @appointment.user = User.find_by(name: params['appointment']['user'])
+        @appointment.date = params['appointment']['date']
+        @appointment.walker = Walker.find(params['appointment']['walker'])
         @appointment.save
-        redirect_to appointment_path(@appointment)
+        redirect_to appointments_path
     end
 
     def edit
+      @appointment = Appointment.find(params[:id])
+
     end
 
     def update
+        redirect_to appointment_path(@appointment)
     end
 
     def destroy 
@@ -31,6 +34,6 @@ class AppointmentsController < ApplicationController
 
     private 
     def appointment_params 
-        params.require(:appointment).permit(:client, :dog_walker)
+        params.require(:appointment).permit(:user, :walker, :date)
     end
 end

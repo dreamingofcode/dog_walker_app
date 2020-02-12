@@ -4,6 +4,9 @@
 <%= t.label :date %>
 <%= t.text_field :date %>
 <br>
+<%= t.label :user %>
+<%= t.text_field :user %>
+<br>
 <%= t.label :walker %>
 <%= t.collection_select :walker, Walker.all, :id, :name %>
 <br>
