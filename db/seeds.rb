@@ -23,5 +23,5 @@ tony_a = Appointment.create(user: tony, walker: cesar)
 patty_a = Appointment.create(user: patty, walker: juan)
 
 dog1 = Dog.create(name: "Oreo", breed: "Pitbull", user: ginger)
-dog2 = Dog.create(name: "Ferins", breed: "Lamb", user: tony)
+dog2 = Dog.create(name: "Ferins", breed: "Lab", user: tony)
 dog3 = Dog.create(name: "Smokey", breed: "Husky", user: patty)

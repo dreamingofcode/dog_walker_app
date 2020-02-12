@@ -2,10 +2,8 @@
 <%= form_for @appointment do |t| %>
 <br>
 <%= t.label :date %>
-<%= t.text_field :date %>
-<br>
-<%= t.label :user %>
-<%= t.text_field :user %>
+<%= t.text_field :date%>
+
 <br>
 <%= t.label :walker %>
 <%= t.collection_select :walker, Walker.all, :id, :name %>

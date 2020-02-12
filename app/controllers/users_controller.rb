@@ -17,10 +17,13 @@ class UsersController < ApplicationController
     end
 
     def show
-        if session[:user_id]
-            @current_user = User.find(session[:user_id])
+        if session[:id]
+            @current_user = User.find(session[:id])
         end
         @user = User.find(params[:id])
+
+        @dogs = Dog.where(user_id: session[:id])
+        
     end
     
     private

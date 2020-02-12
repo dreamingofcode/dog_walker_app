@@ -5,6 +5,9 @@ class AppointmentsController < ApplicationController
 
     def show
         @appointment = Appointment.find(params['id'])
+        @user = Appointment.find_by(walker_id: params[:id]).user
+        @dog = Dog.find_by(user_id: @user).name
+        @walker = Appointment.find(params['id']).walker
     end
 
     def new 
@@ -12,11 +15,9 @@ class AppointmentsController < ApplicationController
     end
 
     def create 
-        @appointment = Appointment.new
-        @appointment.user = User.find_by(name: params['appointment']['user'])
-        @appointment.date = params['appointment']['date']
-        @appointment.walker = Walker.find(params['appointment']['walker'])
-        @appointment.save
+        
+        @appointment = Appointment.new(appointment_params)
+        @appointment.user = 
         redirect_to appointments_path
     end
 
@@ -34,6 +35,6 @@ class AppointmentsController < ApplicationController
 
     private 
     def appointment_params 
-        params.require(:appointment).permit(:user, :walker, :date)
+        params.require(:appointment).permit(:date, :walker)
     end
 end
