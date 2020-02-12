@@ -10,9 +10,9 @@ User.delete_all
 Appointment.delete_all
 Dog.delete_all
 
-keenan = Walker.create(name: "Keenan", rating:"4")
-cesar = Walker.create(name: "Cesar", rating: "4")
-juan = Walker.create(name: "Juan", rating: "4")
+keenan = Walker.create(name: "Keenan")
+cesar = Walker.create(name: "Cesar")
+juan = Walker.create(name: "Juan")
 
 ginger = User.create(name: "Ginger")
 tony = User.create(name: "Tony")
