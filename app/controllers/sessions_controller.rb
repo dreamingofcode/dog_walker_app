@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         end
 
     end
-
+    #log-out
     def destroy 
         session.delete(:name) if session[:name]
         redirect_to controller: 'application', action: 'hello'

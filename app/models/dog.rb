@@ -4,5 +4,5 @@ class Dog < ApplicationRecord
     has_many :appointments, through: :user
     validates :name, presence: true
     validates :breed, presence: true
-    validates :user_id,
+   # validates :user_id
 end

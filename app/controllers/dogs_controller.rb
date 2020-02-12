@@ -6,9 +6,10 @@ class DogsController < ApplicationController
 
     def create
         @dog = Dog.new
-        @dog.name = params[:name]
-        @dog.breed = params[:breed]
-        @dog.user_id = session[:user_id]
+        @dog.name = params[:dog][:name]
+        @dog.breed = params[:dog][:breed]
+        @dog.user_id = session[:id]
+     
         @dog.save
         @user = User.find_by(id: session[:id])
         redirect_to user_path(@user)
