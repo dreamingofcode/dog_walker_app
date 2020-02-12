@@ -2,11 +2,11 @@
 <%= form_for @appointment do |t| %>
 <br>
 <%= t.label :date %>
-<%= t.text_field :date%>
+<%= t.text_field :date, placeholder: "MM/DD/YYYY" %>
 
 <br>
 <%= t.label :walker %>
-<%= t.collection_select :walker, Walker.all, :id, :name %>
+<%= t.collection_select :walker_id, Walker.all, :id, :name %>
 <br>
 <%= t.submit %>
 <% end %>
