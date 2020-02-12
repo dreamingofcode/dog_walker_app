@@ -1,5 +1,5 @@
 class Dog < ApplicationRecord
-    has_one :user
+    belongs_to :user
     has_one :walker, through: :user
     has_many :appointments, through: :user
     validates :name, presence: true

@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
     def new
         @user = User.new
+       
     end
 
     def create
+   
         user = User.create(user_params)
+
         session[:id] = user.id 
-        redirect_to user_path(user.id) #if @user.valid?
+        redirect_to user_path(user) #if @user.valid?
        
-            # flash[:message] ="you dumb hoe!"
+            # flash[:message] =
             # redirect_to new_user_path
         
     end
@@ -23,6 +26,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name,:phone_number,:username,:password)
+        params.require(:user).permit(:name,:username,:password,)
     end
 end

@@ -16,11 +16,14 @@
 <!-- <%= f.label 'Confirm Password' %>
 <%= f.password_field :password_confirmation %> <br/> -->
 
-<h2>Your Dog's Information Below</h2>
+<!-- <h2>Your Dog's Information Below</h2>
 
-<%= form_for @
-<%= f.label :dog_name  %>
-<%= f.text_field :phone_number, placeholder:'Optional' %><br/>
+<%= f.fields_for  :dog do |p| %>
+<%= p.label :name  %>
+<%= p.text_field :name %><br/>
+<%= p.label :breed %>
+<%= p.text_field :breed %><br/>
+<% end %> -->
 
 <%=f.submit "Create New Account!"%>
 
