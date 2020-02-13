@@ -1,1 +1,7 @@
 <h1>All Appointments Might not be needed</h1>
+
+<% @appointments.each do |t| %>
+    Appointment for: <%= link_to t.date, appointment_path(t) %> <hr>
+
+
+<% end %>
