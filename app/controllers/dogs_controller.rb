@@ -16,6 +16,11 @@ class DogsController < ApplicationController
         
     end
 
+    def destroy
+        @dog = Dog.find_by(user_id: session[:id]).destroy
+        @user = User.find_by(id: session[:id])
+        redirect_to user_path(@user)
+    end
     # private
 
     # def dog_params

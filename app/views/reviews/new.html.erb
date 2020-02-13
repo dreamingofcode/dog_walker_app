@@ -1,4 +1,9 @@
 <h1>Write A Review!</h1>
- <% form_for @review do |f| %>
-<%= f.label :rating %>
-<%= f.collection_select %>
+
+
+<%= form_for @review do |f| %>
+<p>Rating: <%= f.select :rating, (1..5) %></p>
+<p><%= f.label :comment %></p>
+<%= f.text_area :comment %>
+<p><%= f.submit %></p>
+<% end %> 

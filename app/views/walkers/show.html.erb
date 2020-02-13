@@ -1,8 +1,3 @@
-<h1>This Is The Walker Show Page</h1>
+<h1>The Dog Walker Show Page</h1>
 
-<p>Dog Walker Name: <%= @walker.name %></p>
-<p>Dog Walker Rating: <%= @walker.rating %></p>
-<p>User Name: <%= @user.name %></p>
-<p>Dog Name: <%= @dogs.name %></p>
-<p>Dog Breed: <%= @dogs.breed %></p>
-<p><%= @appointment.date %></p>
+<p>Dog Walker Name: <%= link_to @walker.name, walker_path(@walker) %></p>

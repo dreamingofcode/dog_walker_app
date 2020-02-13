@@ -6,7 +6,12 @@
 <% @dogs.each do |t| %>
 <label > Dog Name: </label><%= t.name %> <br>
 <label> Dog Breed: </label><%= t.breed %> <br>
+
+<%= link_to "Delete Dog", t, method: :delete, data: { confirm: "YOU REALLY WANNA DELETE THIS DOG?" } %>
+<hr>
+
 <br>
+
 <% end %>
 <label><h3>Your Appointments</h3></label>
 
