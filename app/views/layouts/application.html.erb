@@ -7,9 +7,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<head>
+<style> 
+    body {background-color: lightblue;text-align:center; font-size:30px; font-family:sans-serif}
+    h1 { font-size:100px;}
+</style>
   </head>
 
   <body>
     <%= yield %>
   </body>
+  <% if session[:id] != nil %>
+  <h2><%= button_to 'LOGOUT', logout_path, method: :delete %></h2>
+  <h2><%= button_to 'HOME', user_path(session[:id]), method: :get%></h2>
+  <% end %>
 </html>
