@@ -1,30 +1,32 @@
-<h1>Hello <%= @user.name %></h1>
-<h2>You are Signed in as <%= @user.username %></h2>
+<h1>Hello <%= @current_user.name %></h1>
+<h2>You are Signed in as <%= @current_user.username %></h2>
 
+<% if @current_user.dogs.length > 0 %>
+    <h3>Your Dogs</h3>
+    <% @current_user.dogs.each do |t| %>
+        <label > Dog Name: </label><%= t.name %> <br>
+        <label> Dog Breed: </label><%= t.breed %> <br>
 
-<h3>Your Dogs</h3>
-<% @dogs.each do |t| %>
-<label > Dog Name: </label><%= t.name %> <br>
-<label> Dog Breed: </label><%= t.breed %> <br>
-
-<%= link_to "Delete Dog", t, method: :delete, data: { confirm: "YOU REALLY WANNA DELETE THIS DOG?" } %>
+        <%= link_to "Delete Dog", t, method: :delete, data: { confirm: "YOU REALLY WANNA DELETE THIS DOG?" } %>
+    <% end %>
+<% end %>
 <hr>
 
 <br>
+<% if @current_user.appointments.length > 0 %>
+    <label><h3>Your Appointments</h3></label>
 
-<% end %>
-<label><h3>Your Appointments</h3></label>
-
-<% @appointments.each do |t| %>
+    <% @current_user.appointments.each do |t| %>
     Appointment for: <%= link_to t.date, edit_appointment_path(t) %> <hr>
+<% end %>
 <% end %>
 
 
 <h2><%= link_to "Upload Dog Information", new_dog_path %></h2>
 <h2> <%= link_to "Book Appointment", new_appointment_path %></h2>
-
+<% if @current_user.appointments.length > 0 %>
 <h2><%=link_to "See Your Appointments", appointments_path(@user_appointments)%></h2><br/>
-
+<% end %>
 
 <h2><%= button_to 'LOGOUT', login_path %></h2>
 
