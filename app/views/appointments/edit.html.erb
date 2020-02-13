@@ -8,5 +8,11 @@
 <%= t.label :walker %>
 <%= t.collection_select :walker_id, Walker.all, :id, :name %>
 <br>
+    <%= t.fields_for :review do |f| %>
+<p>Rating: <%= f.select :rating, (1..5) %></p>
+<p><%= f.label :comment %></p>
+<%= f.text_area :comment %>
+
+<% end %> 
 <%= t.submit %>
 <% end %>

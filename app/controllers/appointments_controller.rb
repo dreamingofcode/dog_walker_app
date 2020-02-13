@@ -36,18 +36,25 @@ class AppointmentsController < ApplicationController
     def destroy 
         @appointment = Appointment.find_by(user_id: session[:id]).destroy
         @user = User.find_by(id: session[:id])
-        redirect_to user_path(@user)
+        redirect_to user_path(session[:id])
     end
 
     def update
         @appointment = Appointment.find_by(id: params['id'])
         @appointment.date = params['appointment']['date']
         @appointment.walker_id = params['appointment']['walker_id']
+       
+        @review = Review.new
+        @review.appointment_id = @appointment.id
+        @review.rating = params['appointment']['review']['rating']
+        @review.comment = params['appointment']['review']['comment']
+        @review.save 
         @appointment.save
-        redirect_to appointments_path
+        redirect_to user_path(session[:id])
     end
-
-
+    t.integer "rating"
+    t.string "comment"
+    t.integer "appointment_id"
     @article = Article.find(params[:id])
     @article.update(title: params[:article][:title], description: params[:article][:description])
     redirect_to article_path(@article)
