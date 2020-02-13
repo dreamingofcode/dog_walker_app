@@ -7,7 +7,7 @@
         <label > Dog Name: </label><%= t.name %> <br>
         <label> Dog Breed: </label><%= t.breed %> <br>
 
-        <%= link_to "Delete Dog", t, method: :delete, data: { confirm: "YOU REALLY WANNA DELETE THIS DOG?" } %>
+        <p><%= link_to "Delete Dog", t, method: :delete, data: { confirm: "YOU REALLY WANNA DELETE DOG?" } %></p>
     <% end %>
 <% end %>
 <hr>
@@ -17,8 +17,11 @@
     <label><h3>Your Appointments</h3></label>
 
     <% @current_user.appointments.each do |t| %>
-    Appointment for: <%= link_to t.date, edit_appointment_path(t) %> <hr>
-<% end %>
+    Appointment for: <%= link_to t.date, edit_appointment_path(t) %> 
+
+    <p><%= link_to "Delete Appointment", t, method: :delete, data: { confirm: "YOU REALLY WANNA DELETE APPOINTMENT?" } %></p>
+    <hr>
+    <% end %>
 <% end %>
 
 
