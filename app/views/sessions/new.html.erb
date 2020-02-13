@@ -1,5 +1,18 @@
-<h1>Welcome to Dogwalker!</h1><br/>
-<%= flash[:message] %>
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+    body {background-color: lightblue;text-align:center; font-size:30px; font-family:sans-serif}
+    h1 { font-size:100px;}
+</style>
+
+
+</head>
+<body>
+    
+   
+<h1 class= "header" >Welcome to Dogwalker!</h1>
+<h2 style="color:red"><%= flash[:message] %></h2>
 
 <h2>Please Sign in below!</h2>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
@@ -11,5 +24,7 @@
 
 
 <% end %>
-
+</body>
 <%= link_to 'New User? Create Account!', new_user_path %><br/>
+
+</html>
