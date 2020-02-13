@@ -23,17 +23,6 @@ class UsersController < ApplicationController
         if session[:id]
             @current_user = User.find(session[:id])
         end
-   
-
-       
-        # @dogs = Dog.where(user_id: session[:id])
-        # @appointments = Appointment.all.select {|x| x.user_id == session[:id]}
-        # @appointment = Appointment.find(params['id'])
-      
-  
-        #@user = Appointment.find_by(walker_id: params[:id]).user
-       # @dog = Dog.find_by(user_id: @user).name
-       # @walker = @appointment.walker
     end
     
     private
