@@ -1,3 +1,17 @@
 <h1>The Dog Walker Show Page</h1>
 
 <p>Dog Walker Name: <%= link_to @walker.name, walker_path(@walker) %></p>
+<% @appointments.each do |appointment| %>
+<%= appointment.date %> <br>
+<% appointment.reviews %>
+<% appointment.reviews.each do |review| %>
+<%= review.rating %> stars
+<% end %>
+
+<br> 
+<% end %>
+
+
+
+
+
