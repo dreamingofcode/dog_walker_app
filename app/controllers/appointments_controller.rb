@@ -31,7 +31,12 @@ class AppointmentsController < ApplicationController
     def edit 
         # byebug
       @appointment = Appointment.find(params['id'])
-     
+    end
+
+    def destroy 
+        @appointment = Appointment.find_by(user_id: session[:id]).destroy
+        @user = User.find_by(id: session[:id])
+        redirect_to user_path(@user)
     end
 
     def update
@@ -48,11 +53,7 @@ class AppointmentsController < ApplicationController
     redirect_to article_path(@article)
 
 
-
-
-
-    def destroy 
-    end
+    
 
     # private 
     # def appointment_params 
